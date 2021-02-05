@@ -1,0 +1,9 @@
+*~
+*.db
+.DS_Store
+.vscode
+.elixir_ls
+
+coverage
+__pycache__
+.db

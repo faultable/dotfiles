@@ -24,3 +24,6 @@
 
 [difftool]
   prompt = true
+
+[init]
+	defaultBranch = main

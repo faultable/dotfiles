@@ -11,6 +11,9 @@ set -x PATH $HOME/.nix-profile/bin $PATH
 set -x PATH $HOME/.npm-global/bin:$PATH
 set -x PATH /opt/local/bin:/opt/local/sbin:$PATH
 
+# don't store any less(1) history
+set -x LESSHISTFILE /dev/null
+
 # forward ports but in background
 function delman_start
   ssh -f -N -M -S /tmp/delman.ssh delman -L 8000:localhost:8000 -L 3000:localhost:3000 -L 8000:localhost:8000

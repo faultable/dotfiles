@@ -2,7 +2,24 @@ set -x LC_ALL en_US.UTF-8
 set -x EDITOR vim
 set -x GPG_TTY (tty)
 set -x FZF_DEFAULT_COMMAND fd --type f --exclude .git --exclude node_modules
+
+set -x NIX_PROFILES "/nix/var/nix/profiles/default $HOME/.nix-profile"
+set -x NIX_SSL_CERT_FILE "$HOME/.nix-profile/etc/ssl/certs/ca-bundle.crt"
+set -x NIX_PATH /nix $HOME/.nix-defexpr/channels
+
+set -x PATH $HOME/.nix-profile/bin $PATH
+set -x PATH $HOME/.npm-global/bin:$PATH
 set -x PATH /opt/local/bin:/opt/local/sbin:$PATH
+
+# forward ports but in background
+function delman_start
+  ssh -f -N -M -S /tmp/delman.ssh delman -L 8000:localhost:8000 -L 3000:localhost:3000 -L 8000:localhost:8000
+end
+
+# stop port forwarding
+function delman_end
+  ssh -S /tmp/delman.ssh -O exit delman
+end
 
 # short any github url to human memorable url
 function gitio
@@ -54,3 +71,4 @@ function fish_title
   echo ""
 end
 
+starship init fish | source

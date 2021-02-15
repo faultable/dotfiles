@@ -45,6 +45,9 @@ if (has('mouse'))
   set mouse=a
 endif
 
+"store .viminfo into ~/.vim/viminfo
+set viminfo+=n~/.vim/viminfo
+
 "hide last status to keep interface clean
 set laststatus=0
 "

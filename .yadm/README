@@ -1,0 +1,5 @@
+there's still manual process before bootstrap, and that was:
+
+- install nixos!
+- import my SSH secret key (from vault or nextcloud)
+- import my PGP secret key (from vault or nextcloud)

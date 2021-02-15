@@ -26,4 +26,4 @@
   prompt = true
 
 [init]
-	defaultBranch = main
+  defaultBranch = main

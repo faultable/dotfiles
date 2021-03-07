@@ -1,14 +1,17 @@
 set -x LC_ALL en_US.UTF-8
+set -x LANG en_US.UTF-8
+set -x LANGUAGE en_US.UTF-8
 set -x EDITOR vim
 set -x GPG_TTY (tty)
 set -x FZF_DEFAULT_COMMAND fd --type f --exclude .git --exclude node_modules
 
 set -x NIX_PROFILES "/nix/var/nix/profiles/default $HOME/.nix-profile"
-set -x NIX_SSL_CERT_FILE "$HOME/.nix-profile/etc/ssl/certs/ca-bundle.crt"
 set -x NIX_PATH /nix $HOME/.nix-defexpr/channels
 
 set -x PATH $HOME/.nix-profile/bin $PATH
 set -x PATH $HOME/.bin/npm/bin $PATH
+set -x PATH $HOME/.local/bin $PATH
+set -x PATH /nix/var/nix/profiles/default/bin $PATH
 
 # don't store any less(1) history
 set -x LESSHISTFILE /dev/null

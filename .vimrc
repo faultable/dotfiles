@@ -5,7 +5,7 @@ Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'joshdick/onedark.vim'
+Plug 'junegunn/seoul256.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -35,7 +35,8 @@ let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|build|dist)|(\.(swp|ico|
 
 "essential
 if (has('termguicolors'))
-  set termguicolors
+  "i need to disable termguicolors until mosh completely support it :)
+  "set termguicolors
 endif
 
 set backspace=indent,eol,start
@@ -89,7 +90,7 @@ set rtp+=/usr/local/opt/fzf
 set clipboard^=unnamed,unnamedplus
 
 "use color scheme one
-colorscheme onedark
+colorscheme seoul256
 
 "yes
 filetype plugin indent on

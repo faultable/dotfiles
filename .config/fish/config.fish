@@ -13,6 +13,8 @@ set -x PATH $HOME/.bin/npm/bin $PATH
 set -x PATH $HOME/.local/bin $PATH
 set -x PATH /nix/var/nix/profiles/default/bin $PATH
 
+set -x PATH $HOME/.n/bin $PATH
+
 # don't store any less(1) history
 set -x LESSHISTFILE /dev/null
 

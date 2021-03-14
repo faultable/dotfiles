@@ -21,7 +21,7 @@ scrolling:
 
 font:
   normal:
-    family: Rec Mono Casual
+    family: Recursive Mono Casual Static
     style: Regular
 
   bold:
@@ -33,7 +33,7 @@ font:
   bold_italic:
     style: Bold Italic
 
-  size: 16.0
+  size: 09.0
 
   offset:
     x: 0
@@ -127,28 +127,7 @@ selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
   save_to_clipboard: false
 
-cursor:
-  style:
-    shape: Block
-    blinking: Off
-  vi_mode_style:
-    shape: Beam
-    blinking: Always
-
-  blink_interval: 750
-
-  unfocused_hollow: true
-
-  thickness: 0.10
-
 live_config_reload: true
-
-shell:
-  program: /bin/bash
-  args:
-    - --login
-    - -c
-    - "mosh jasmine -- tmux a"
 
 working_directory: None
 

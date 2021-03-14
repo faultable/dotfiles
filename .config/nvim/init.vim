@@ -35,8 +35,7 @@ let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|build|dist)|(\.(swp|ico|
 
 "essential
 if (has('termguicolors'))
-  "i need to disable termguicolors until mosh completely support it :)
-  "set termguicolors
+  set termguicolors
 endif
 
 set backspace=indent,eol,start

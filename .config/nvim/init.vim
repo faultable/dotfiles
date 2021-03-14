@@ -6,6 +6,7 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/seoul256.vim'
+Plug 'joshdick/onedark.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -89,7 +90,7 @@ set rtp+=/usr/local/opt/fzf
 set clipboard^=unnamed,unnamedplus
 
 "use color scheme one
-colorscheme seoul256
+colorscheme onedark
 
 "yes
 filetype plugin indent on

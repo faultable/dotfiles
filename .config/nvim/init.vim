@@ -1,6 +1,7 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -11,7 +12,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'sheerun/vim-polyglot'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'yuttie/comfortable-motion.vim'
@@ -20,6 +20,10 @@ call plug#end()
 
 "hide help in nerdtree
 let NERDTreeMinimalUI = 1 
+
+"change default nerdtree icons
+let g:NERDTreeDirArrowExpandable = '+'
+let g:NERDTreeDirArrowCollapsible = '-'
 
 "don't show these directories on Nerdtree
 let NERDTreeIgnore=['__pycache__', 'node_modules']
@@ -92,6 +96,9 @@ set clipboard^=unnamed,unnamedplus
 "use color scheme one
 colorscheme onedark
 
+"transparent background
+hi Normal guibg=NONE ctermbg=NONE
+
 "yes
 filetype plugin indent on
 
@@ -150,7 +157,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 "create new tab with ctrl+t
-nnoremap <C-t> :tabnew<CR>
+nnoremap <C-t> :tabnew <CR>:NERDTreeMirror<CR>
 
 "perform fuzzy search content (ripgrep) with ctrl+f
 nnoremap <C-f> :Rg<CR>

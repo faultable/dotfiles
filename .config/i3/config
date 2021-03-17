@@ -16,9 +16,10 @@ bindsym $mod+space exec rofi -lines 10 -padding 18 -width 60 -location 0 -show d
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10%
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10%
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
-bindsym XF86AudioMute 	     exec --no-startup-id pactl set-sink-mute   0 toggle
+# 0 = laptop speaker, 10 = airpods
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%    && pactl set-sink-volume 10 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%    && pactl set-sink-volume 10 -5%
+bindsym XF86AudioMute 	     exec --no-startup-id pactl set-sink-mute   0 toggle && pactl set-sink-mute 10 toggle
 
 bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
@@ -27,14 +28,16 @@ bindsym XF86AudioPrev exec playerctl previous
 
 exec --no-startup-id nm-applet
 exec --no-startup-id compton -b
-exec --no-startup-id feh --bg-max ~/Pictures/bg.jpg
+exec --no-startup-id feh --bg-fill ~/Pictures/bg0.jpg
+
+# map capslock to esc
+exec --no-startup-id xmodmap -e "clear lock"
+exec --no-startup-id xmodmap -e "keysym Caps_Lock = Escape"
 
 # full window
-bindsym --release $mod+Shift+3 exec scrot ~/Pictures/Screenshots/$(uuidgen).png
+bindsym --release $mod+Shift+3 exec flameshot full -p ~/Pictures/Screenshots
 # selected window
-bindsym --release $mod+Shift+4 exec scrot -u ~/Pictures/Screenshots/$(uuidgen).png
-# area
-bindsym --release $mod+Shift+5 exec scrot -s ~/Pictures/Screenshots/$(uuidgen).png
+bindsym --release $mod+Shift+4 exec flameshot gui -p ~/Pictures/Screenshots
 
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -113,7 +116,7 @@ bar {
 
 client.focused              #bf616a #bf616a #d8dee8 #bf616a #bf616a
 client.focused_inactive     #d8dee8 #ffffff #bf616a #d8dee8 #d8dee8
-client.unfocused            #d8dee8 #d8dee8 #d8dee8 #d8dee8 #28dee8
+client.unfocused            #bf616a #ffffff #333333 #333333 #333333
 client.urgent               #2f343f #2f343f #d8dee8 #2f343f #2f343f
 client.placeholder          #2f343f #2f343f #d8dee8 #2f343f #2f343f
 client.background           #2f343f

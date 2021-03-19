@@ -8,10 +8,10 @@ font pango:Recursive Mono Casual Static 8
 
 floating_modifier $mod
 
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty
 
 bindsym $mod+Shift+q kill
-bindsym $mod+space exec rofi -lines 10 -padding 18 -width 60 -location 0 -show drun -sidebar-mode
+bindsym $mod+space exec rofi -lines 10 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -theme ~/.config/rofi/kayina.rasi
 
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10%
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10%
@@ -99,6 +99,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 bar {
+  i3bar_command i3bar
 	status_command i3status
 	position bottom
   tray_output none
@@ -116,7 +117,7 @@ bar {
 
 client.focused              #bf616a #bf616a #d8dee8 #bf616a #bf616a
 client.focused_inactive     #d8dee8 #ffffff #bf616a #d8dee8 #d8dee8
-client.unfocused            #bf616a #ffffff #333333 #333333 #333333
+client.unfocused            #bf616a #ffffff #bf616a #333333 #333333
 client.urgent               #2f343f #2f343f #d8dee8 #2f343f #2f343f
 client.placeholder          #2f343f #2f343f #d8dee8 #2f343f #2f343f
 client.background           #2f343f

@@ -1,0 +1,60 @@
+{
+  "layer": "top",
+  "position": "bottom",
+  "modules-left": ["sway/workspaces"],
+  "modules-right": ["custom/spotify", "backlight", "pulseaudio", "custom/tailscale", "network", "cpu", "memory",
+  "battery", "clock"],
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon} {percent}% ",
+    "format-icons": ["", ""]
+  },
+  "clock": {
+    "format": "{:[%A] %d %B %Y %H:%m %Z}"
+  },
+  "cpu": {
+    "format": " {usage}% "
+  },
+  "memory": {
+    "format": " {}% "
+  },
+  "custom/tailscale": {
+    "format": " {} ",
+    "exec": "echo tailscale0",
+    "exec-if": "test -d /proc/sys/net/ipv4/conf/tailscale0",
+    "interval": 5
+  },
+  "battery": {
+    "bat": "BAT0",
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}% ",
+    "format-icons": ["", "", "", "", ""]
+  },
+  "network": {
+    "format-wifi": " {essid} ({signalStrength}%)",
+    "format-ethernet": " {ifname}: {ipaddr}/{cidr} ",
+    "format-disconnected": "Disconnected ⚠"
+  },
+  "custom/spotify": {
+    "format": " {} ",
+    "exec": "spt pb -f '%a - %t'",
+    "exec-if": "pgrep spotifyd",
+    "interval": 5
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}% ",
+    "format-bluetooth": " {volume}% ",
+    "format-muted": " (muted)",
+    "format-icons": {
+      "headphones": "",
+      "handsfree": "",
+      "headset": "",
+      "default": ["", ""]
+    },
+    "on-click": "pavucontrol"
+  }
+}

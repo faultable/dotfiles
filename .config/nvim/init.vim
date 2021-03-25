@@ -1,32 +1,42 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/seoul256.vim'
 Plug 'joshdick/onedark.vim'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+Plug 'kyazdani42/nvim-tree.lua'
 Plug 'airblade/vim-gitgutter'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'nathanaelkane/vim-indent-guides'
 Plug 'yuttie/comfortable-motion.vim'
+Plug 'equalsraf/neovim-gui-shim'
 
 call plug#end()
 
-"hide help in nerdtree
-let NERDTreeMinimalUI = 1 
-
-"change default nerdtree icons
-let g:NERDTreeDirArrowExpandable = '+'
-let g:NERDTreeDirArrowCollapsible = '-'
-
-"don't show these directories on Nerdtree
-let NERDTreeIgnore=['__pycache__', 'node_modules']
+let g:neovide_transparency=0.8
+let g:nvim_tree_indent_markers = 1
+let g:nvim_tree_width_allow_resize = 1
+let g:nvim_tree_hide_dotfiles = 1
+let g:nvim_tree_git_hl = 1
+let g:nvim_tree_width = 20
+let g:nvim_tree_ignore = [ '__pycache__', '.git', 'node_modules', '.cache' ]
+let g:nvim_tree_icons = {
+    \ 'git': {
+    \   'unstaged': "✗",
+    \   'staged': "✓",
+    \   'unmerged': "x",
+    \   'renamed': "➜",
+    \   'untracked': "★"
+    \   },
+    \ }
+let g:nvim_tree_show_icons = {
+  \ 'git': 1,
+  \ 'folders': 0,
+  \ 'files': 0,
+  \}
 
 "for comfortable_motion thing
 let g:comfortable_motion_scroll_down_key = "j"
@@ -43,6 +53,7 @@ if (has('termguicolors'))
   set termguicolors
 endif
 
+"???
 set backspace=indent,eol,start
 
 "because why not
@@ -119,7 +130,7 @@ command! Reload :so ~/.config/nvim/init.vim
 command! ToggleBg call ToggleBackground()
 
 "hide tilde (~) that representing empty line
-highlight EndOfBuffer guifg=bg
+let &fcs='eob: '
 
 "auto format all this files with Prettier asynchronously
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue,*.yaml PrettierAsync
@@ -145,6 +156,10 @@ else
   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 "related with above, end
+
+"auto create comment with ctrl+/ 
+nnoremap <silent><C-_> :Commentary<CR>
+vnoremap <silent><C-_> :Commentary<CR>
 
 "fold text
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
@@ -172,7 +187,7 @@ nnoremap <C-c> :syntax sync fromstart<CR>
 nnoremap <C-h> :noh<CR>
 
 "toggle nerdtree with ctrl+b
-nnoremap <C-b> :NERDTreeToggle<CR>
+nnoremap <C-b> :NvimTreeToggle<CR>
 
 "select all text with ctrl+a
 nnoremap <C-a> <esc>ggVG$<CR>

@@ -1,15 +1,21 @@
+if test (tty) = "/dev/tty1"
+  sway
+end
+
 set -x LC_ALL en_US.UTF-8
 set -x LANG en_US.UTF-8
 set -x LANGUAGE en_US.UTF-8
 set -x EDITOR nvim
 set -x GPG_TTY (tty)
 set -x FZF_DEFAULT_COMMAND "fd --type f --exclude .git --exclude node_modules"
+set -x MOZ_ENABLE_WAYLAND 1
 
 # pip thing
 set -x PATH $HOME/.local/bin $PATH
 
 # npm thing
 set -x PATH $HOME/.n/bin $PATH
+set -x PATH $HOME/.bin/npm/bin $PATH
 
 # don't store any less(1) history
 set -x LESSHISTFILE /dev/null

@@ -13,6 +13,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'equalsraf/neovim-gui-shim'
+Plug 'wakatime/vim-wakatime'
 
 call plug#end()
 
@@ -50,7 +51,7 @@ let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|build|dist)|(\.(swp|ico|
 
 "essential
 if (has('termguicolors'))
-  set termguicolors
+  "set termguicolors
 endif
 
 "???

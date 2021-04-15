@@ -17,6 +17,8 @@ set -x PATH $HOME/.local/bin $PATH
 set -x PATH $HOME/.n/bin $PATH
 set -x PATH $HOME/.bin/npm/bin $PATH
 
+set -x PATH $HOME/.fly/bin $PATH
+
 # don't store any less(1) history
 set -x LESSHISTFILE /dev/null
 

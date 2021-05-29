@@ -1,7 +1,7 @@
 [user]
-  name = fariz
-  email = hi@faultable.dev
-  signkey = 2CD539B765EDCA5C
+  name = faultable
+  email = oss@faultable.dev
+  signkey = 32CAA966980BFE12
 
 [core]
   pager = delta --plus-color="#012800" --minus-color="#340001" --theme='Monokai Extended'
@@ -15,9 +15,6 @@
 
 [includeIf "gitdir:~/Developer/evilfactorylabs/"]
   path = ~/.config/git/evilfactorylabs
-
-[includeIf "gitdir:~/Developer/koalafyhq/"]
-  path = ~/.config/git/koalafyhq
 
 [credential]
   helper = store

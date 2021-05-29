@@ -5,11 +5,20 @@ set -x EDITOR nvim
 set -x GPG_TTY (tty)
 set -x FZF_DEFAULT_COMMAND "fd --type f --exclude .git --exclude node_modules"
 
+set fish_greeting
+
+# fly thing
+set -x PATH $HOME/.fly/bin $PATH
+
+# port thing
+set -x PATH /opt/local/bin $PATH
+
 # pip thing
 set -x PATH $HOME/.local/bin $PATH
 
 # npm thing
 set -x PATH $HOME/.n/bin $PATH
+set -x PATH $HOME/.bin/npm/bin $PATH
 
 # don't store any less(1) history
 set -x LESSHISTFILE /dev/null

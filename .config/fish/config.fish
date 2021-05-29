@@ -1,9 +1,14 @@
+if test (tty) = "/dev/tty1"
+  sway
+end
+
 set -x LC_ALL en_US.UTF-8
 set -x LANG en_US.UTF-8
 set -x LANGUAGE en_US.UTF-8
 set -x EDITOR nvim
 set -x GPG_TTY (tty)
 set -x FZF_DEFAULT_COMMAND "fd --type f --exclude .git --exclude node_modules"
+set -x MOZ_ENABLE_WAYLAND 1
 
 set fish_greeting
 
@@ -78,4 +83,4 @@ function fish_title
   echo "fish"
 end
 
-starship init fish | source
+#starship init fish | source
